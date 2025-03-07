@@ -600,7 +600,7 @@ body {
     position: relative;
     display: inline-block;
     transition: all 0.3s ease;
-    pading:5px;
+    pading:10px;
   }
   
   /* Icon base style */
