@@ -616,7 +616,7 @@ body {
   .contact-icon::before {
     content: "";
     position: absolute;
-    top: 60%;
+    top: 50%;
     left: 60%;
     width: 100%;
     height: 100%;
