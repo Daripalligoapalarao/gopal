@@ -17,14 +17,16 @@
                 <img src="https://res.cloudinary.com/dpnikl1em/image/upload/v1738484549/gopalpassphoto-Photoroom.png-Photoroom_wet1bw.png" class="headpic"
                 alt="Profile Picture">
             </a>
-            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse " id="navbarNav">
+            
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#Experience">Experience</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#Experience">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                     <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
                     <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -459,6 +461,25 @@
                 });
             });
         });
+
+        document.addEventListener("DOMContentLoaded", function () {
+        // Select all nav links and the navbar collapse element
+        const navLinks = document.querySelectorAll(".nav-link");
+        const navbarCollapse = document.querySelector(".navbar-collapse");
+
+        navLinks.forEach(function (link) {
+            link.addEventListener("click", function () {
+                // Check if the navbar is collapsed (visible only in mobile or tablet views)
+                if (window.innerWidth <= 991) {
+                    // Close the navbar after clicking a link
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                }
+            });
+        });
+    });
     </script>
 </body>
 </html>
