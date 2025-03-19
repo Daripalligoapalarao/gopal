@@ -440,10 +440,7 @@ body {
     .exp-timeline {
         padding-left: 1.5rem;
     }
-    .exp-timeline::before {
-            left: 15px;
-        }
-
+    
     .exp-timeline-icon {
         left: -15px;
         width: 40px;
