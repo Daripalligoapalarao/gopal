@@ -484,6 +484,20 @@
             });
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+    const elements = document.querySelectorAll(".animate-on-scroll");
+    const scrollTrigger = () => {
+      elements.forEach((el) => {
+        const elementPosition = el.getBoundingClientRect().top;
+        if (elementPosition < window.innerHeight - 100) {
+          el.classList.add("visible");
+        }
+      });
+    };
+    window.addEventListener("scroll", scrollTrigger);
+    scrollTrigger(); // Run once on load
+  });
     </script>
 </body>
 </html>
