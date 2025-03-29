@@ -278,7 +278,7 @@ body {
 .contact-section {
     background: var(--primary-color);
     color: white;
-    padding: 2rem 6%;
+    padding: 2.5rem 6%;
 }
 
 @media (max-width: 768px) {
