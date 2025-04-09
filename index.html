@@ -453,6 +453,7 @@
                             <textarea id="contactMessage" name="message" class="form-control h-100" rows="4" placeholder="Your Message" required></textarea>
                         </div>
                         <button type="submit" class="btn btn-submit mt-auto align-self-center mb-2">Send Message</button>
+                        <div id="submissionMsg" style="display: none; text-align: center; margin-top: 10px; font-weight: bold;"></div>
                     </form>
                 </div>
             </div>
@@ -519,7 +520,7 @@
             });
         });
     });
-
+//Form related code
     document.addEventListener("DOMContentLoaded", function () {
     const elements = document.querySelectorAll(".animate-on-scroll");
     const scrollTrigger = () => {
@@ -532,6 +533,38 @@
     };
     window.addEventListener("scroll", scrollTrigger);
     scrollTrigger(); // Run once on load
+  });
+  
+  document.querySelector('.contact-form').addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const form = this;
+    const formData = new FormData(form);
+    
+    // Submit the form data using Fetch
+    fetch(form.action, {
+      method: form.method,
+      body: formData,
+    })
+    .then(response => {
+      if (response.ok) {
+        // Optionally process the response or show a success message
+        // Then clear the form fields
+        form.reset();
+        let submissionMsgEL=document.getElementById("submissionMsg")
+        submissionMsgEL.textContent="Your message is Sent";
+        submissionMsgEL.style.display="block";
+        
+      } else {
+        // Handle the error response here
+        console.error('Submission failed.');
+        let submissionMsgEL=document.getElementById("submissionMsg")
+        submissionMsgEL.textContent="Your message is Not Sent";
+        submissionMsgEL.style.display="block";
+      }
+    })
+    .catch(error => {
+      console.error('Error occurred during submission:', error);
+    });
   });
     </script>
 </body>
